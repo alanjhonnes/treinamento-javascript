@@ -1,3 +1,5 @@
+hardToUnderstand()
+
 /**
  * @returns {User}
  */
@@ -7,6 +9,7 @@ function hardToUnderstand() {
     addNameToUser("alan", user);
     addEmailToUser("alan.sa@mjv.com.br", user);
     addAgeToUser(29, user);
+    console.log(user);
     /**
      * @type {User}
      */
@@ -42,7 +45,7 @@ function addAgeToUser(age, user) {
 
 
 
-
+easyPeasyLemonSqueezy();
 
 /**
  * @returns {User}
@@ -51,19 +54,18 @@ function easyPeasyLemonSqueezy() {
     const partialUser = {};
     const userWithName = addNameToUserEasy("alan", partialUser);
     const userWithNameAndEmail = addEmailToUserEasy("alan", userWithName);
-    /**
-     * @type {User}
-     */
     const fullUser = addAgeToUserEasy(29, userWithNameAndEmail);
+
+    console.log(fullUser);
     return fullUser;
 }
 
 
 
 /**
- * @template {Partial<User>} T 
+ * @template {Partial<User>} T
  * @param {string} name 
- * @param {T} user 
+ * @param {Partial<User>} user 
  */
 function addNameToUserEasy(name, user) {
     return {

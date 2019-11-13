@@ -8,7 +8,7 @@
 
 // findIndex -> procura o primeiro indice do vetor que corresponde à função de predicado, se não for encontrado retorna -1
 
-
+// slice -> duplica ou pega uma parte do vetor
 
 /**
  * @type {User[]}
@@ -21,17 +21,47 @@ const users = [
     },
     {
         name: "Jhonnes",
-        age: 15,
+        age: 40,
     },
-]
+];
 
 const userNames = users.map(user => user.name);
 console.log(userNames);
 
 const emails = users
-.filter(user => Boolean(user.email))
-.map(user => user.email);
+    .filter(user => Boolean(user.email))
+    .map(user => user.email);
 console.log(emails);
 
-const alan = users.find(user => user.name.includes("Alan"));
+const alan = users.findIndex(user => user.name === "Alan");
 console.log(alan);
+
+const duplicate = users.slice();
+console.log(duplicate);
+
+const orderedUsers = users.slice().sort((usera, userb) => usera.email ? 1 : -1);
+console.log(users);
+console.log(orderedUsers);
+
+const maxAge = users.reduce((highestAge, user, index, arr) => {
+    return user.age > highestAge
+        ? user.age
+        : highestAge
+}, 0);
+console.log(maxAge);
+
+/**
+ * @type {string[]}
+ */
+const initial = [];
+/**
+ * @type {string[]}
+ */
+const emails2 = users.reduce((acc, user) => {
+    if (!user.email) {
+        return acc;
+    }
+    acc.push(user.email);
+    return acc;
+}, initial);
+console.log(emails2);

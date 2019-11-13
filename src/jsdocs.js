@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * @typedef {object} User
  * @property {string} name
@@ -18,6 +20,14 @@ function createUser(name, age) {
 }
 
 /**
+ * @type {import("./area").Area}
+ */
+const area = {
+    width: 1,
+    height: 2,
+}
+
+/**
  * @param {string} name
  * @param {number} age
  * @returns {{name: string, age: number, email?: string}}
@@ -25,7 +35,7 @@ function createUser(name, age) {
  */
 function createUserInline(name, age) {
     return {
-       name: name,
-       age: age,
+        name: name,
+        age: age,
     }
 }
